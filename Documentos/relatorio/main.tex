@@ -28,6 +28,8 @@
 \usepackage[acronym]{glossaries}
 \usepackage{pdfpages}
 \usepackage{longtable}
+\usepackage{marginnote}
+
 
 %Definições dos Títulos
 \titleformat{\chapter}[display]
@@ -64,6 +66,23 @@ BoldFont=NewsGotTBold.ttf
 \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
 \patchcmd{\headrule}{\hrule}{\color{black}\hrule}{}{} %Change color Hrule
 
+\newenvironment{loggentry}[2]{%
+  \parindent=0em%
+
+  \reversemarginpar\marginnote{#1}%
+  \textbf{#2}
+
+}{\smallskip}
+
+
+\newenvironment{logentry}[2]{%
+  \parindent=0em%
+
+  \reversemarginpar\marginnote{#1}%
+  \textbf{#2}
+  \medskip
+
+}{\smallskip}
 
 \begin{document}
 \fancyfoot[R]{\thepage}
@@ -74,6 +93,8 @@ BoldFont=NewsGotTBold.ttf
     \includepdf[pages={1}]{chapter/pdf/capaTP3.pdf}
 \end{titlepage}
 
+\newpage
+\include{chapter/registo.tex}
 
 %Índice
 \renewcommand{\contentsname}{Índice}
@@ -81,7 +102,6 @@ BoldFont=NewsGotTBold.ttf
 \clearpage
 \let\oldnumberline\numberline% Copy \numberline into \oldnumberline
 \renewcommand{\numberline}[1]{\hspace*{-1.5em}}% Remove number argument
-
 
 %Definições do Rodapé
 \fancyfoot[R]{\thepage}
