@@ -6,7 +6,7 @@
 
 %Packages
 %\usepackage{sectsty}  % Gera warnings com o LuaTex
-\usepackage[portuguese, english]{babel}
+\usepackage[portuguese]{babel}
 \usepackage{graphicx}
 \usepackage{blindtext}
 \usepackage{fontspec}
@@ -99,6 +99,8 @@ BoldFont=NewsGotTBold.ttf
 %Índice
 \renewcommand{\contentsname}{Índice}
 \tableofcontents
+\listoftables
+\listoffigures
 \clearpage
 \let\oldnumberline\numberline% Copy \numberline into \oldnumberline
 \renewcommand{\numberline}[1]{\hspace*{-1.5em}}% Remove number argument
